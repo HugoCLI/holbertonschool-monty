@@ -9,8 +9,7 @@
 
 int main(int argc, char *argv[])
 {
-	char *arguments[1024] = {NULL};
-	int file;
+	FILE *file;
 	(void)argc;
 
 	if (!argv[1])
@@ -18,5 +17,13 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
+ 	file = fopen(argv[1], "r");
+	if (!file)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't open file %s\n", argv[1]);
+		return (EXIT_FAILURE);
+	}
+
+	parse_file(&file);
 	return (0);
 }
