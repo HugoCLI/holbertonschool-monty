@@ -23,7 +23,7 @@ To run the program, use the following command, where `<filename>` is the name of
 
 The `push` opcode pushes an element to the stack.
 
-### Usage
+#### Usage
 
 ```m
 push <int>
@@ -31,7 +31,7 @@ push <int>
 
 where `<int>` is an integer.
 
-### Errors
+#### Errors
 
 - If there is no argument given to `push`, the program will print an error message.
 - If `<int>` is not an integer, the program will print an error message.
@@ -40,7 +40,7 @@ where `<int>` is an integer.
 
 The `pall` opcode prints all the values on the stack, starting from the top of the stack.
 
-### Usage
+#### Usage
 
 ```m
 pall
@@ -53,20 +53,15 @@ If the stack is empty, nothing will be printed.
 
 The `pint` opcode prints the value at the top of the stack, followed by a new line.
 
-### Usage
+#### Usage
 
 ```m
 pint
 ```
 
-### Errors
+#### Errors
 
 - If the stack is empty, the program will print an error message.
-
-## Contributors
-
-- [Redginald Godeau](mailto:redginald.godeau@holbertonstudents.com)
-- [Hugo Chilemme](mailto:hugo.chilemme@holbertonstudents.com)
 
 
 ## Example
@@ -91,3 +86,9 @@ When this file is run with the `./monty` program, it will produce the following 
 ```
 
 The `push` opcodes add the numbers `1`, `2`, and `3` to the stack. The `pall` opcode then prints all the values on the stack, starting from the top of the stack (`3`, `2`, `1`). Finally, the `pint` opcode prints the value at the top of the stack (`3`), followed by a new line.
+
+
+## Contributors
+
+- [Redginald Godeau](mailto:redginald.godeau@holbertonstudents.com) [Github](https://github.com/RedginaldGodeau)
+- [Hugo Chilemme](mailto:hugo.chilemme@holbertonstudents.com) [Github](https://github.com/HugoCLI)
