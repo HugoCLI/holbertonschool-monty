@@ -9,27 +9,32 @@
 int parse_file(FILE **file)
 {
         char *line = NULL;
-        char *cmd, av[1024];
+        char *token, *av[1024];
+        char *command = NULL;
         int i = 0;
 
 	size_t len;
 
         while (getline(&line, &len, *file) > 0)
         {
-                printf("[%li] %s", strlen(line), line);
-                cmd = strtok(line, " ");
-                while (cmd != NULL)
+                command = strtok(line, " ");
+                token = strtok(line, " ");
+                while (token != NULL)
                 {
-                        if (strlen(cmd) > 0)
+                        if (strlen(token) > 0)
                         {
-                                av[i++] = cmd;
-                                printf("%s\n",token);
+                                av[i] = token;
+                                i++;
                         }
 
-                        cmd = strtok(NULL, " ");
+                        token = strtok(NULL, " ");
                 }
+                execute_command(command, av);
+                for (i = 0; av[i]; i++)
+                        av[i] = NULL;
+                
         }
-
+        return (0);
         
 
 }
