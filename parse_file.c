@@ -9,9 +9,8 @@
 int parse_file(FILE **file)
 {
         char *line = NULL;
-        char *token, *av[1024];
+        char *token = NULL;
         char *command = NULL;
-        int i = 0;
         int statuscode = 0;
         int l = 0;
 	size_t len;
@@ -19,19 +18,32 @@ int parse_file(FILE **file)
         while (getline(&line, &len, *file) > 0)
         {
                 command = strtok(line, " ");
+
+                if (!command)
+                        return (0);
+
                 token = strtok(NULL, " ");
-                
                 statuscode = execute_command(command, token);
+                
 
                 if (statuscode == 2)
                 {
                         dprintf(STDERR_FILENO, "L%i: usage: push integer\n", l);
                         return (0);
+                } 
+                else if (statuscode == 3)
+                {
+                        dprintf(STDERR_FILENO, "L%i: can't pint, stack empty\n", l);
+                        return (0);
+                }
+                else if (statuscode == 4)
+                {
+                        dprintf(STDERR_FILENO, "L%i: can't pop an empty stack\n", l);
+                        return (0);
                 }
                 l++;
 
-                for (i = 0; av[i]; i++)
-                        av[i] = NULL;
+                
                 
         }
         return (0);

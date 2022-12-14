@@ -14,6 +14,8 @@ int execute_command(char *command, char *value);
 
 int push_command(int value);
 int pall_command(void);
+int pint_command(void);
+int pop_command(void);
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -45,6 +47,6 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern stack_t array;
+extern stack_t *array;
 
 #endif
