@@ -6,9 +6,9 @@
  *
  * Return: Nothing.
  */
-int push_command(char *av[])
+int push_command(int value)
 {
-        (void)av;
+        (void)value;
         return (1);
 }
 
@@ -20,11 +20,14 @@ int push_command(char *av[])
  */
 int pall_command(void)
 {
-        stack_t *cache = array;
+        if (!array)
+                return (0);
+                
+        stack_t cache = array;
         while (cache)
         {
-                printf("%i", cache->n);
-                cache = cache->next;
+                printf("%i", cache.n);
+                cache = cache.next;
         }
         return (0);
 }

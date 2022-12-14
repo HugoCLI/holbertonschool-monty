@@ -10,9 +10,9 @@
 #include <sys/stat.h>
 
 int parse_file(FILE **file);
-int execute_command(char *command, char *av[]);
+int execute_command(char *command, char *value);
 
-int push_command(char *av[]);
+int push_command(int value);
 int pall_command(void);
 
 /**
@@ -45,6 +45,6 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern stack_t *array;
+extern stack_t array;
 
 #endif

@@ -6,10 +6,14 @@
  *
  * Return: Nothing.
  */
-int execute_command(char *command, char *av[])
+int execute_command(char *command, char *value)
 {
         if (strcmp(command, "push"))
-                return push_command(av);
+        {
+                if (atoi(value) == 0)
+                        return (2);
+                return push_command(atoi(value));
+        }
         if (strcmp(command, "pall"))
                 return pall_command();
         

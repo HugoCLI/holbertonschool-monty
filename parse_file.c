@@ -12,24 +12,24 @@ int parse_file(FILE **file)
         char *token, *av[1024];
         char *command = NULL;
         int i = 0;
-
+        int statuscode = 0;
+        int l = 0;
 	size_t len;
 
         while (getline(&line, &len, *file) > 0)
         {
                 command = strtok(line, " ");
-                token = strtok(line, " ");
-                while (token != NULL)
-                {
-                        if (strlen(token) > 0)
-                        {
-                                av[i] = token;
-                                i++;
-                        }
+                token = strtok(NULL, " ");
+                
+                statuscode = execute_command(command, token);
 
-                        token = strtok(NULL, " ");
+                if (statuscode == 2)
+                {
+                        dprintf(STDERR_FILENO, "L%i: usage: push integer\n", l);
+                        return (0);
                 }
-                execute_command(command, av);
+                l++;
+
                 for (i = 0; av[i]; i++)
                         av[i] = NULL;
                 
