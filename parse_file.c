@@ -1,35 +1,46 @@
 #include "header.h"
+
 /**
- * execute_command - a function that execute commands
- * @commands: commands
- * @filename: filename
+ * parse_file - a function that execute commands
+ * @file: FILE
  *
  * Return: Nothing.
  */
 int parse_file(FILE **file)
 {
-        char *line = NULL;
-        char *cmd, av[1024];
-        int i = 0;
-
+	char *line = NULL;
+	char *token = NULL;
+	char *command = NULL;
+	int statuscode = 0;
+	int l = 0;
 	size_t len;
 
-        while (getline(&line, &len, *file) > 0)
-        {
-                printf("[%li] %s", strlen(line), line);
-                cmd = strtok(line, " ");
-                while (cmd != NULL)
-                {
-                        if (strlen(cmd) > 0)
-                        {
-                                av[i++] = cmd;
-                                printf("%s\n",token);
-                        }
+	while (getline(&line, &len, *file) > 0)
+	{
+		command = strtok(line, " ");
 
-                        cmd = strtok(NULL, " ");
-                }
-        }
+		if (!command)
+			return (0);
 
-        
+		token = strtok(NULL, " ");
+		statuscode = execute_command(command, token);
 
+		if (statuscode == 2)
+		{
+			dprintf(STDERR_FILENO, "L%i: usage: push integer\n", l);
+			return (0);
+		}
+		else if (statuscode == 3)
+		{
+			dprintf(STDERR_FILENO, "L%i: can't pint, stack empty\n", l);
+			return (0);
+		}
+		else if (statuscode == 4)
+		{
+			dprintf(STDERR_FILENO, "L%i: can't pop an empty stack\n", l);
+			return (0);
+		}
+		l++;
+	}
+	return (0);
 }
