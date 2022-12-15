@@ -12,17 +12,24 @@ int parse_file(FILE **file)
 	char *token = NULL;
 	char *command = NULL;
 	int statuscode = 0;
-	int l = 1;
+	int l = 0;
 	size_t len;
 
 	while (getline(&line, &len, *file) > 0)
 	{
 		command = strtok(line, " ");
-
+                l++;
+                
 		if (!command)
 			return (EXIT_FAILURE);
 
 		token = strtok(NULL, " ");
+                while (token && strlen(token) == 0)
+                        token = strtok(NULL, " ");
+
+                if (!command || strlen(command) <= 1)
+                        continue;
+
 		statuscode = execute_command(command, token);
 		if (statuscode == 2)
 		{
@@ -48,7 +55,7 @@ int parse_file(FILE **file)
 			dprintf(STDERR_FILENO, "L%i: unknown instruction %s\n", l, command);
 			return (EXIT_FAILURE);
 		}
-		l++;
+		
 	}
         free(line);
 	return (0);
