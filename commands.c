@@ -8,7 +8,7 @@ stack_t *array;
  */
   /**
    * push_command - a function that execute commands
-   * @av: arguments
+   * @value: value
    *
    * Return: Nothing.
    */
@@ -19,12 +19,13 @@ int push_command(int value)
         if (!new)
                 return (-3);
         
-        new->n = value;
         new->prev = NULL;
-        new->next = array;
+        new->next = NULL;
+        new->n = value;
         if (array)
-                array = new;
-        
+            new->next = array;
+
+        array = new;          
        
   
         return (1);
@@ -38,23 +39,40 @@ int push_command(int value)
  */
 int pall_command(void)
 {
-        
-        if (array != NULL)
+        if (array == NULL)
                 return (0);
 
+        stack_t *cache = array;
+
+        while (cache)
+        {
+                 printf("%i\n", cache->n);
+                 cache = cache->next;
+        }
         
-        printf("%i", array->n);
+       
         return (0);
 }
 
+/**
+ * pint_command - a function that execute commands
+ *
+ * Return: Nothing.
+ */
 int pint_command(void)
 {
-        if (array != NULL)
+        if (array == NULL)
                 return (3);
                 
         printf("%i\n", array->n);
         return (0);
 }
+
+/**
+ * pop_command - a function that execute commands
+ *
+ * Return: Nothing.
+ */
 int pop_command(void)
 {
         if (array != NULL)

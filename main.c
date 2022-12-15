@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
- 	file = fopen(argv[1], "r");
+	file = fopen(argv[1], "r");
 	if (!file)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't open file %s\n", argv[1]);
