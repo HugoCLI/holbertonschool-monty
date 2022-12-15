@@ -17,15 +17,15 @@ int parse_file(FILE **file)
 
 	while (getline(&line, &len, *file) > 0)
 	{
-		command = strtok(line, " ");
+		command = strtok(line, " \t\n\r");
                 l++;
-                
-		if (!command)
-			return (EXIT_FAILURE);
 
-		token = strtok(NULL, " ");
+		if (!command)
+			continue;
+
+		token = strtok(NULL, " \t\n\r");
                 while (token && strlen(token) == 0)
-                        token = strtok(NULL, " ");
+                        token = strtok(NULL, " \t\n\r");
 
                 if (!command || strlen(command) <= 1)
                         continue;

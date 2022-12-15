@@ -18,7 +18,7 @@ int push_command(int value)
 {
         stack_t *new = malloc(sizeof(stack_t));
 
-        if (!new)
+        if (new == 0)
                 return (-3);
         
         new->prev = NULL;
@@ -54,7 +54,7 @@ int pall_command(void)
         }
         
        
-        return (0);
+        return (1);
 }
 
 /**
@@ -68,7 +68,7 @@ int pint_command(void)
                 return (3);
                 
         printf("%i\n", array->n);
-        return (0);
+        return (1);
 }
 
 /**
@@ -94,5 +94,5 @@ int pop_command(void)
 
         free(array);
         array = new_head;
-        return (0);
+        return (1);
 }
