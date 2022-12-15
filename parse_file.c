@@ -41,6 +41,12 @@ int parse_file(FILE **file)
                         free(line);
 			dprintf(STDERR_FILENO, "L%i: can't pop an empty stack\n", l);
 			return (EXIT_FAILURE);
+                }
+                else if (statuscode == 5)
+		{
+                        free(line);
+			dprintf(STDERR_FILENO, "L%i: unknown instruction %s\n", l, command);
+			return (EXIT_FAILURE);
 		}
 		l++;
 	}
