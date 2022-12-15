@@ -10,10 +10,12 @@
 #include <sys/stat.h>
 
 int parse_file(FILE **file);
-int execute_command(char *command, char *av[]);
+int execute_command(char *command, char *value);
 
-int push_command(char *av[]);
+int push_command(int value);
 int pall_command(void);
+int pint_command(void);
+int pop_command(void);
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
