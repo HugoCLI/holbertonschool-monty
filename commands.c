@@ -1,4 +1,4 @@
-#include "header.h"
+#include "monty.h"
 stack_t *array;
 /**
  * push_command - a function that execute commands
