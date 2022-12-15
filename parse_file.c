@@ -54,6 +54,12 @@ int parse_file(FILE **file)
                         free(line);
 			return (EXIT_FAILURE);
 		}
+                else if (statuscode == 6)
+		{
+			dprintf(STDERR_FILENO, "L%i: can't pop an empty stack\n", l);
+                        free(line);
+			return (EXIT_FAILURE);
+		}
 		
 	}
         free(line);
