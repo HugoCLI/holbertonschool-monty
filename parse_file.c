@@ -12,7 +12,7 @@ int parse_file(FILE **file)
 	char *token = NULL;
 	char *command = NULL;
 	int statuscode = 0;
-	int l = 0;
+	int l = 1;
 	size_t len;
 
 	while (getline(&line, &len, *file) > 0)
@@ -28,17 +28,17 @@ int parse_file(FILE **file)
 		if (statuscode == 2)
 		{
 			dprintf(STDERR_FILENO, "L%i: usage: push integer\n", l);
-			return (0);
+			return (1);
 		}
 		else if (statuscode == 3)
 		{
 			dprintf(STDERR_FILENO, "L%i: can't pint, stack empty\n", l);
-			return (0);
+			return (1);
 		}
 		else if (statuscode == 4)
 		{
 			dprintf(STDERR_FILENO, "L%i: can't pop an empty stack\n", l);
-			return (0);
+			return (1);
 		}
 		l++;
 	}
