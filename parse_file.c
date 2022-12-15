@@ -29,7 +29,6 @@ int parse_file(FILE **file)
 
                 if (!command || strlen(command) <= 1)
                         continue;
-                printf("%i %s\n", l, command);
 		statuscode = execute_command(command, token);
 		if (statuscode == 2)
 		{
