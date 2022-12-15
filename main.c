@@ -24,6 +24,5 @@ int main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	}
 
-	parse_file(&file);
-	return (0);
+	return (parse_file(&file));
 }

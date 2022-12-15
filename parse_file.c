@@ -20,25 +20,24 @@ int parse_file(FILE **file)
 		command = strtok(line, " ");
 
 		if (!command)
-			return (0);
+			return (EXIT_FAILURE);
 
 		token = strtok(NULL, " ");
 		statuscode = execute_command(command, token);
-
 		if (statuscode == 2)
 		{
 			dprintf(STDERR_FILENO, "L%i: usage: push integer\n", l);
-			return (1);
+			return (EXIT_FAILURE);
 		}
 		else if (statuscode == 3)
 		{
 			dprintf(STDERR_FILENO, "L%i: can't pint, stack empty\n", l);
-			return (1);
+			return (EXIT_FAILURE);
 		}
 		else if (statuscode == 4)
 		{
 			dprintf(STDERR_FILENO, "L%i: can't pop an empty stack\n", l);
-			return (1);
+			return (EXIT_FAILURE);
 		}
 		l++;
 	}
