@@ -8,22 +8,25 @@
  */
 int execute_command(char *command, char *value)
 {
-        int is_negative = 0;
+	const char *str = "abcdefghijklmnopqrstwxyzABCDEFGHIJKLMNOPQRSTWXYZ";
+        int i = 0;
+	
+	(void) str;
 
 	if (!command || strlen(command) < 1)
 		return (0);
 
 	if (strcmp(command, "push") == 0)
 	{
-
-                if (strstr(value, "-"))
-                {
-                        is_negative = 1;
-                        
-                }
-		if (!value || atoi(value) == 0)
+		if (!value || strlen(value) < 1)
 			return (2);
-		return (push_command(atoi(value)));
+
+		for (; str[i]; i++)
+			if (strchr(value, str[i]))
+				return (2);
+		i = atoi(value);
+
+		return (push_command(i));
 	}
 	if (strcmp(command, "pall")  == 0)
 		return (pall_command());
