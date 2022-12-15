@@ -1,4 +1,6 @@
 #include "monty.h"
+
+stack_t *array;
 /**
  * main - main function
  * @argc: argc
@@ -10,6 +12,8 @@
 int main(int argc, char *argv[])
 {
 	FILE *file;
+	stack_t *tmp;
+	int error;
 	(void)argc;
 
 	if (!argv[1])
@@ -23,6 +27,16 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't open file %s\n", argv[1]);
 		return (EXIT_FAILURE);
 	}
+	
+	error = parse_file(&file);
+	fclose(file);
 
-	return (parse_file(&file));
+	while (array)
+	{
+		tmp = array->next;
+		free(array);
+		array = tmp;
+	}
+
+	return (error);
 }

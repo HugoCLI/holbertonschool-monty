@@ -40,6 +40,8 @@ int parse_file(FILE **file)
 			return (EXIT_FAILURE);
 		}
 		l++;
+		free(token);
+		free(command);
 	}
 	return (0);
 }
