@@ -8,11 +8,19 @@
  */
 int execute_command(char *command, char *value)
 {
+        int is_negative = 0;
+
 	if (!command || strlen(command) < 1)
 		return (0);
 
 	if (strcmp(command, "push") == 0)
 	{
+
+                if (strstr(value, "-"))
+                {
+                        is_negative = 1;
+                        
+                }
 		if (!value || atoi(value) == 0)
 			return (2);
 		return (push_command(atoi(value)));

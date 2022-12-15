@@ -1,5 +1,6 @@
 {
         "files.associations": {
-                "monty.h": "c"
+                "monty.h": "c",
+                "type_traits": "c"
         }
 }
