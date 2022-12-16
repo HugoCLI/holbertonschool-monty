@@ -19,6 +19,8 @@ int error_message(int line, int err, char *cmd)
 		dprintf(STDERR_FILENO, "L%i: unknown instruction %s\n", line, cmd);
 	else if (err == 6)
 		dprintf(STDERR_FILENO, "L%i: can't %s, stack too short\n", line, cmd);
+	else if (err == 7)
+		dprintf(STDERR_FILENO, "L%i: division by zero\n", line);
 	return (0);
 }
 
