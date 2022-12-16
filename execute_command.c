@@ -27,11 +27,11 @@ int execute_command(char *command, char *value)
 	if (strcmp(command, "mul") == 0)
 		return (mul_command());
 	if (strcmp(command, "div") == 0)
-		return (div_command());	
+		return (div_command());
 	if (strcmp(command, "mod") == 0)
-		return (mod_command());	
+		return (mod_command());
 	if (strcmp(command, "pchar") == 0)
-		return (pchar_command());	
+		return (pchar_command());
 	if (strncmp(command, "#", 1) == 0)
 		return (0);
 	return (5);
