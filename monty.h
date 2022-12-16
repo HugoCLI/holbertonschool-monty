@@ -11,6 +11,8 @@
 
 int parse_file(FILE **file);
 int execute_command(char *command, char *value);
+int error_message (int line, int err, char *cmd);
+
 
 int push_command(int value);
 int pall_command(void);

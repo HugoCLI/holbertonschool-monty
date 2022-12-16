@@ -1,28 +1,23 @@
 #include "monty.h"
 
 stack_t *array;
+
 /**
- * push_command - a function that execute commands
- * @av: arguments
- *
- * Return: Nothing.
- */
-  /**
-   * push_command - a function that execute commands
-   * @value: value
-   *
-   * Return: Nothing.
-   */
-  
+* push_command - a function that execute commands
+* @value: value
+*
+* Return: Nothing.
+*/
+ 
 int push_command(int value)
 {
-        stack_t *new = malloc(sizeof(stack_t));
+	stack_t *new = malloc(sizeof(stack_t));
 
-        if (new == 0)
-        {
-                free(new);
-                return (-3);
-        }
+	if (new == 0)
+	{
+		free(new);
+		return (-3);
+	}
         new->prev = NULL;
         new->next = NULL;
         new->n = value;
