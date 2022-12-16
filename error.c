@@ -18,13 +18,7 @@ int error_message(int line, int err, char *cmd)
 	else if (err == 5)
 		dprintf(STDERR_FILENO, "L%i: unknown instruction %s\n", line, cmd);
 	else if (err == 6)
-		dprintf(STDERR_FILENO, "L%i: can't pop an empty stack\n", line);
-	else if (err == 7)
-		dprintf(STDERR_FILENO, "L%i: can't swap, stack too short\n", line);
-	else if (err == 8)
-		dprintf(STDERR_FILENO, "L%i: can't add, stack too short\n", line);
-	else if (err == 9)
-		dprintf(STDERR_FILENO, "L%i: can't sub, stack too short\n", line);
+		dprintf(STDERR_FILENO, "L%i: can't %s, stack too short\n", line, cmd);
 	return (0);
 }
 

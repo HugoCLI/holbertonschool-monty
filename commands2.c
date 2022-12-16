@@ -11,7 +11,7 @@ int swap_command(void)
 	stack_t *second_stack;
 
 	if (!array || !array->next)
-		return (7);
+		return (6);
 
 	first_stack = array->next;
 	second_stack = array;
@@ -36,7 +36,7 @@ int add_command(void)
 	stack_t *cache;
 
 	if (!array || !array->next)
-		return (8);
+		return (6);
 
 	sum += seek->n;
 	sum += seek->next->n;
@@ -62,7 +62,7 @@ int sub_command(void)
 	stack_t *cache;
 
 	if (!array || !array->next)
-		return (9);
+		return (6);
 
 	sum -= seek->n;
 	sum += seek->next->n;
