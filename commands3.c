@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * mul_command - a function that execute commands
+ * div_command - a function that execute commands
  *
  * Return: Nothing.
  */
@@ -14,10 +14,10 @@ int div_command(void)
 	if (!array || !array->next)
 		return (6);
 
-        if (seek->n == 0)
-                return (7);
+	if (seek->n == 0)
+		return (7);
 
-        sum = seek->next->n / seek->n;
+	sum = seek->next->n / seek->n;
 
 	cache = seek->next->next;
 
@@ -43,10 +43,10 @@ int mod_command(void)
 	if (!array || !array->next)
 		return (6);
 
-        if (seek->n == 0)
-                return (7);
-                
-        sum = seek->next->n % seek->n;
+	if (seek->n == 0)
+		return (7);
+
+	sum = seek->next->n % seek->n;
 
 	cache = seek->next->next;
 
@@ -65,17 +65,17 @@ int mod_command(void)
  */
 int pchar_command(void)
 {
-        int val;
+	int val;
+
 	if (!array)
 		return (9);
 
-        val = array->n;
+	val = array->n;
+	if (val < 0 && val > 255)
+		return (8);
 
-        if (val < 0 && val > 255)
-            return (8);
-        
-        putchar(val);
-        putchar('\n');
+	putchar(val);
+	putchar('\n');
 
 	return (1);
 
