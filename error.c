@@ -23,6 +23,8 @@ int error_message(int line, int err, char *cmd)
 		dprintf(STDERR_FILENO, "L%i: can't swap, stack too short\n", line);
 	else if (err == 8)
 		dprintf(STDERR_FILENO, "L%i: can't add, stack too short\n", line);
+	else if (err == 9)
+		dprintf(STDERR_FILENO, "L%i: can't sub, stack too short\n", line);
 	return (0);
 }
 
