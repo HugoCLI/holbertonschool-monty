@@ -57,3 +57,26 @@ int mod_command(void)
 	return (1);
 
 }
+
+/**
+ * pchar_command - a function that execute commands
+ *
+ * Return: Nothing.
+ */
+int pchar_command(void)
+{
+        int val;
+	if (!array)
+		return (6);
+
+        val = array->n;
+
+        if (val < 0 && val > 255)
+            return (8);
+        
+        putchar(val);
+        putchar('\n');
+
+	return (1);
+
+}
