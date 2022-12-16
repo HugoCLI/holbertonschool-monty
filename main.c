@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * main - main function
  * @argc: argc
@@ -7,7 +6,6 @@
  *
  * Return: Shell.
  */
-
 int main(int argc, char *argv[])
 {
 	FILE *file;

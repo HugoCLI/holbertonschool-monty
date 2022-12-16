@@ -41,7 +41,7 @@ typedef struct stack_s
 } stack_t;
 
 
-
+stack_t *array;
 extern stack_t *array;
 
 #endif
