@@ -14,6 +14,9 @@ int div_command(void)
 	if (!array || !array->next)
 		return (6);
 
+        if (seek->n == 0)
+                return (7);
+                
         sum = seek->next->n / seek->n;
 
 	cache = seek->next->next;
