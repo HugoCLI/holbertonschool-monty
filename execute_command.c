@@ -40,5 +40,8 @@ int execute_command(char *command, char *value)
         if (strcmp(command, "swap")  == 0)
 		return (swap_command());
 
+        if (strcmp(command, "nop")  == 0)
+		return (0);
+
 	return (5);
 }
