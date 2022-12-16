@@ -67,7 +67,7 @@ int pchar_command(void)
 {
         int val;
 	if (!array)
-		return (6);
+		return (9);
 
         val = array->n;
 
