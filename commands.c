@@ -70,7 +70,7 @@ int pop_command(void)
 	stack_t *new_head;
 
 	if (array == NULL)
-		return (6);
+		return (4);
 
 	if (!array->next)
 	{
