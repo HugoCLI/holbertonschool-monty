@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 	int error;
 	(void)argc;
 	array = NULL;
-	
+
 	if (argc != 2)
 	{
 		dprintf(STDERR_FILENO, "USAGE: monty file\n");
