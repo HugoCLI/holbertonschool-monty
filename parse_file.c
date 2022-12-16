@@ -29,6 +29,7 @@ int parse_file(FILE **file)
 
 		if (!command || strlen(command) <= 1)
 			continue;
+
 		statuscode = execute_command(command, token);
 
 		if (statuscode > 1)

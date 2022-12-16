@@ -49,3 +49,29 @@ int add_command(void)
 	return (1);
 
 }
+
+/**
+ * sub_command - a function that execute commands
+ *
+ * Return: Nothing.
+ */
+int sub_command(void)
+{
+	int sum = 0;
+	stack_t *seek = array;
+	stack_t *cache;
+
+	if (!array || !array->next)
+		return (8);
+
+	sum -= seek->n;
+	sum += seek->next->n;
+	cache = seek->next->next;
+
+	free(array->next);
+	free(array);
+	array = cache;
+	push_command(sum);
+	return (1);
+
+}
