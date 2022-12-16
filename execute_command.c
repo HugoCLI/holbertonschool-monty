@@ -28,5 +28,7 @@ int execute_command(char *command, char *value)
 		return (mul_command());
 	if (strcmp(command, "div") == 0)
 		return (div_command());	
+	if (strcmp(command, "mod") == 0)
+		return (mod_command());	
 	return (5);
 }
