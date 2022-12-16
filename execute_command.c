@@ -30,5 +30,7 @@ int execute_command(char *command, char *value)
 		return (div_command());	
 	if (strcmp(command, "mod") == 0)
 		return (mod_command());	
+	if (strncmp(command, "#", 1) == 0)
+		return (0);
 	return (5);
 }
