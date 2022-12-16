@@ -62,7 +62,7 @@ int sub_command(void)
 	stack_t *cache;
 
 	if (!array || !array->next)
-		return (8);
+		return (9);
 
 	sum -= seek->n;
 	sum += seek->next->n;
