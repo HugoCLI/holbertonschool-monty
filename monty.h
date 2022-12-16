@@ -16,13 +16,12 @@ int push_command(int value);
 int pall_command(void);
 int pint_command(void);
 int pop_command(void);
-<<<<<<< HEAD
 
 int error(int line, int err, char *cmd)
-=======
+
 int swap_command(void);
 int add_command(void);
->>>>>>> 1e002f8760b4c42271c24fec0f659ad480cde8a8
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
