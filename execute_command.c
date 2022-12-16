@@ -9,17 +9,16 @@
 int execute_command(char *command, char *value)
 {
 	const char *str = "abcdefghijklmnopqrstwxyzABCDEFGHIJKLMNOPQRSTWXYZ";
-	int i = 0;
+        int i = 0;
 
-	(void) str;
 	if (!command || strlen(command) < 1)
 		return (0);
 	if (strcmp(command, "push") == 0)
 	{
-		if (!value || strlen(value) < 1)
+		if (!value)
 			return (2);
 		for (; str[i]; i++)
-			if (strchr(value, str[i]))
+			if (strchr(value, str[i]) != NULL)
 				return (2);
 		i = atoi(value);
 		return (push_command(i));
