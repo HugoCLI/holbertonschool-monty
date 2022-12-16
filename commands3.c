@@ -14,10 +14,7 @@ int div_command(void)
 	if (!array || !array->next)
 		return (6);
 
-        if (seek->n > seek->next->n)
-                sum = seek->n / seek->next->n;
-        else
-                sum = seek->next->n / seek->next->n;
+        sum = seek->next->n / seek->n;
 
 	cache = seek->next->next;
 
