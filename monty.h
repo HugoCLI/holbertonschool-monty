@@ -15,6 +15,7 @@ int error_message (int line, int err, char *cmd);
 int parse_int(char *value);
 
 int push_command(int value);
+int pchar_command(void);
 int pall_command(void);
 int pint_command(void);
 int pop_command(void);
