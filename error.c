@@ -25,3 +25,4 @@ int error_message(int line, int err, char *cmd)
 		dprintf(STDERR_FILENO, "L%i: can't add, stack too short\n", line);
 	return (0);
 }
+

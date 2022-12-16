@@ -5,7 +5,6 @@
  *
  * Return: Nothing.
  */
-stack_t *array;
 int swap_command(void)
 {
 	stack_t *first_stack;
