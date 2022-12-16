@@ -30,7 +30,10 @@ int parse_file(FILE **file)
 		if (!command || strlen(command) <= 1)
 			continue;
 		statuscode = execute_command(command, token);
+<<<<<<< HEAD
+=======
 		error(l, statuscode, command);
+>>>>>>> 7319924b5a24ef35227a64909a2d806904850786
 
 		if (statuscode > 1)
 		{
