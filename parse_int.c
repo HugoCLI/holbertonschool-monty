@@ -12,10 +12,10 @@ int parse_int(char *value)
 	int i = 0;
 
 	if (!value)
-		return (0);
+		return (2);
 	for (; str[i]; i++)
 		if (strchr(value, str[i]) != NULL)
-			return (0);
+			return (2);
 
 	return (push_command(atoi(value)));
 }
