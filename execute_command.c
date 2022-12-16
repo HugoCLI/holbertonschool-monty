@@ -24,5 +24,7 @@ int execute_command(char *command, char *value)
 		return (add_command());
 	if (strcmp(command, "sub") == 0)
 		return (sub_command());
+	if (strcmp(command, "mul") == 0)
+		return (mul_command());
 	return (5);
 }
