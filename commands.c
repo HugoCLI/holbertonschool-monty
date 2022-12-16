@@ -13,7 +13,7 @@ int push_command(int value)
 	if (new == 0)
 	{
 		free(new);
-		return (-3);
+		return (0);
 	}
 	new->prev = NULL;
 	new->next = NULL;
