@@ -1,5 +1,6 @@
 #include "monty.h"
 
+<<<<<<< HEAD
 stack_t *array;
 /**
  * push_command - a function that execute commands
@@ -34,6 +35,31 @@ int push_command(int value)
   
         return (1);
   }
+=======
+/**
+* push_command - a function that execute commands
+* @value: value
+*
+* Return: Nothing.
+*/
+int push_command(int value)
+{
+	stack_t *new = malloc(sizeof(stack_t));
+
+	if (new == 0)
+	{
+		free(new);
+		return (-3);
+	}
+	new->prev = NULL;
+	new->next = NULL;
+	new->n = value;
+	if (array)
+		new->next = array;
+	array = new;
+	return (1);
+}
+>>>>>>> 02f721226f6dc37d94f47748b92f706e7fe05d9d
 
 
 /**
@@ -45,6 +71,7 @@ int pall_command(void)
 {
 	stack_t *cache;
 
+<<<<<<< HEAD
         if (array == NULL)
                 return (0);
 
@@ -58,6 +85,19 @@ int pall_command(void)
         
        
         return (1);
+=======
+	if (array == NULL)
+		return (0);
+
+	cache = array;
+
+	while (cache)
+	{
+		printf("%i\n", cache->n);
+		cache = cache->next;
+	}
+	return (1);
+>>>>>>> 02f721226f6dc37d94f47748b92f706e7fe05d9d
 }
 
 /**
@@ -67,11 +107,18 @@ int pall_command(void)
  */
 int pint_command(void)
 {
+<<<<<<< HEAD
         if (array == NULL)
                 return (3);
                 
         printf("%i\n", array->n);
         return (1);
+=======
+	if (array == NULL)
+		return (3);
+	printf("%i\n", array->n);
+	return (1);
+>>>>>>> 02f721226f6dc37d94f47748b92f706e7fe05d9d
 }
 
 /**
@@ -83,6 +130,7 @@ int pop_command(void)
 {
 	stack_t *new_head;
 
+<<<<<<< HEAD
         if (array == NULL)
                 return (6);
         
@@ -152,3 +200,20 @@ int add_command(void)
         return (1);
 
 }
+=======
+	if (array == NULL)
+		return (6);
+	if (!array->next)
+	{
+		free(array);
+		array = NULL;
+		return (1);
+	}
+	new_head = array->next;
+	free(array);
+	array = new_head;
+
+	return (1);
+}
+
+>>>>>>> 02f721226f6dc37d94f47748b92f706e7fe05d9d
