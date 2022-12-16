@@ -2,6 +2,7 @@ push 1
 push 2
 push 3
 pint
+# ok
 nop
 push 4
 swap
