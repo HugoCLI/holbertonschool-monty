@@ -12,6 +12,7 @@ stack_t *array;
 int main(int argc, char *argv[])
 {
 	FILE *file;
+	stack_t *tmp;
 	int error;
 	(void)argc;
 
@@ -30,6 +31,12 @@ int main(int argc, char *argv[])
 	error = parse_file(&file);
 	fclose(file);
 
+	while (array)
+	{
+		tmp = array->next;
+		free(array);
+		array = tmp;
+	}
 
 	return (error);
 }

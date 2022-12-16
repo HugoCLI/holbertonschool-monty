@@ -37,5 +37,8 @@ int execute_command(char *command, char *value)
 	if (strcmp(command, "pop")  == 0)
 		return (pop_command());
 
+        if (strcmp(command, "swap")  == 0)
+		return (swap_command());
+
 	return (5);
 }
