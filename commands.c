@@ -1,7 +1,5 @@
 #include "monty.h"
 
-stack_t *array;
-
 /**
 * push_command - a function that execute commands
 * @value: value
@@ -34,7 +32,7 @@ int push_command(int value)
  */
 int pall_command(void)
 {
-        stack_t *cache;
+	stack_t *cache;
 	if (array == NULL)
 		return (0);
 
@@ -69,18 +67,18 @@ int pint_command(void)
 int pop_command(void)
 {
 	stack_t *new_head;
-        if (array == NULL)
-                return (6);
-        
-        if (!array->next)
-        {
-                free(array);
-                array = NULL;
-                return (1);
-        }
-        new_head = array->next;
-        free(array);
-        array = new_head;        
 
-        return (1);
+	if (array == NULL)
+		return (6);
+
+	if (!array->next)
+	{
+		free(array);
+		array = NULL;
+		return (1);
+	}
+	new_head = array->next;
+	free(array);
+	array = new_head;
+	return (1);
 }
