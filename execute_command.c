@@ -11,8 +11,6 @@ int execute_command(char *command, char *value)
 	const char *str = "abcdefghijklmnopqrstwxyzABCDEFGHIJKLMNOPQRSTWXYZ";
 	int i = 0;
 
-	if (!command || strlen(command) < 1)
-		return (0);
 	if (strcmp(command, "push") == 0)
 	{
 		if (!value)
@@ -35,5 +33,7 @@ int execute_command(char *command, char *value)
 		return (0);
 	if (strcmp(command, "add") == 0)
 		return (add_command());
+	if (strcmp(command, "sub") == 0)
+		return (sub_command());
 	return (5);
 }
