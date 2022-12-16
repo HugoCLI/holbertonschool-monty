@@ -33,7 +33,6 @@ int main(int argc, char *argv[])
 	while (array)
 	{
 		tmp = array->next;
-		printf("(%d)\n", array->n);
 		free(array);
 		array = tmp;
 	}
