@@ -19,8 +19,10 @@ int push_command(int value)
         stack_t *new = malloc(sizeof(stack_t));
 
         if (new == 0)
+        {
+                free(new);
                 return (-3);
-        
+        }
         new->prev = NULL;
         new->next = NULL;
         new->n = value;
@@ -45,6 +47,7 @@ int pall_command(void)
 
         if (array == NULL)
                 return (0);
+
         cache = array;
 
         while (cache)
@@ -86,13 +89,12 @@ int pop_command(void)
         if (!array->next)
         {
                 free(array);
-                return (0);
+                array = NULL;
+                return (1);
         }
-                
         new_head = array->next;
-        new_head->prev = NULL;
-
         free(array);
-        array = new_head;
+        array = new_head;        
+
         return (1);
 }
