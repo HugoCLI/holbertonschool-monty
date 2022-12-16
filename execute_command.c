@@ -9,7 +9,7 @@
 int execute_command(char *command, char *value)
 {
 	const char *str = "abcdefghijklmnopqrstwxyzABCDEFGHIJKLMNOPQRSTWXYZ";
-        int i = 0;
+	int i = 0;
 
 	if (!command || strlen(command) < 1)
 		return (0);

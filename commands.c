@@ -33,6 +33,7 @@ int push_command(int value)
 int pall_command(void)
 {
 	stack_t *cache;
+
 	if (array == NULL)
 		return (0);
 
