@@ -110,7 +110,7 @@ int swap_command(void)
         stack_t *second_stack;
 
 	if (!array || !array->next)
-                return (6);
+                return (7);
 
         first_stack = array->next;
         second_stack = array;
