@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 #include "monty.h"
-
-=======
- #include "monty.h"
->>>>>>> 7319924b5a24ef35227a64909a2d806904850786
 /**
 * error_message - Entry point...
 * Description: 'the program desc'
@@ -27,13 +22,6 @@ int error_message(int line, int err, char *cmd)
 	else if (err == 7)
 		dprintf(STDERR_FILENO, "L%i: can't swap, stack too short\n", line);
 	else if (err == 8)
-<<<<<<< HEAD
 		dprintf(STDERR_FILENO, "L%i: can't add, stack too short\n", line);
 	return (0);
 }
-=======
-		printf(STDERR_FILENO, "L%i: can't add, stack too short\n", line);
-	return (0);
-}
-
->>>>>>> 7319924b5a24ef35227a64909a2d806904850786
