@@ -98,3 +98,29 @@ int pop_command(void)
 
         return (1);
 }
+
+/**
+ * swap_command - a function that execute commands
+ *
+ * Return: Nothing.
+ */
+int swap_command(void)
+{
+        stack_t *first_stack;
+        stack_t *second_stack;
+
+	if (!array || !array->next)
+                return (6);
+
+        first_stack = array->next;
+        second_stack = array;
+
+        first_stack->prev = NULL;
+        second_stack->prev = first_stack;
+        second_stack->next = first_stack->next;
+        first_stack->next = second_stack;
+        
+        array = first_stack;
+        return (1);
+
+}
