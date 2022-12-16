@@ -18,27 +18,26 @@ int parse_file(FILE **file)
 	while (getline(&line, &len, *file) > 0)
 	{
 		command = strtok(line, " \t\n\r");
-                l++;
+		l++;
 
 		if (!command)
 			continue;
 
 		token = strtok(NULL, " \t\n\r");
-                while (token && strlen(token) == 0)
-                        token = strtok(NULL, " \t\n\r");
+		while (token && strlen(token) == 0)
+			token = strtok(NULL, " \t\n\r");
 
-                if (!command || strlen(command) <= 1)
-                        continue;
+		if (!command || strlen(command) <= 1)
+			continue;
 		statuscode = execute_command(command, token);
-                        
-                if (statuscode > 1)
-                {
-                        error_message(l, statuscode, command);
-                        free(line);
+
+		if (statuscode > 1)
+		{
+			error_message(l, statuscode, command);
+			free(line);
 			return (EXIT_FAILURE);
-                }
-		
+		}
 	}
-        free(line);
+	free(line);
 	return (0);
 }
