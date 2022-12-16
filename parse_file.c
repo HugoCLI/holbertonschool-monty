@@ -31,35 +31,23 @@ int parse_file(FILE **file)
                         continue;
 		statuscode = execute_command(command, token);
 		if (statuscode == 2)
-		{
 			dprintf(STDERR_FILENO, "L%i: usage: push integer\n", l);
-                        free(line);
-			return (EXIT_FAILURE);
-		}
 		else if (statuscode == 3)
-		{
 			dprintf(STDERR_FILENO, "L%i: can't pint, stack empty\n", l);
-                        free(line);
-			return (EXIT_FAILURE);
-		}
 		else if (statuscode == 4)
-		{
 			dprintf(STDERR_FILENO, "L%i: can't pop an empty stack\n", l);
+                else if (statuscode == 5)
+			dprintf(STDERR_FILENO, "L%i: unknown instruction %s\n", l, command);
+                else if (statuscode == 6)
+			dprintf(STDERR_FILENO, "L%i: can't pop an empty stack\n", l);
+                else if (statuscode == 7)
+			dprintf(STDERR_FILENO, "L%i: can't swap, stack too short\n", l);
+                        
+                if (statuscode > 1)
+                {
                         free(line);
 			return (EXIT_FAILURE);
                 }
-                else if (statuscode == 5)
-		{
-			dprintf(STDERR_FILENO, "L%i: unknown instruction %s\n", l, command);
-                        free(line);
-			return (EXIT_FAILURE);
-		}
-                else if (statuscode == 6)
-		{
-			dprintf(STDERR_FILENO, "L%i: can't pop an empty stack\n", l);
-                        free(line);
-			return (EXIT_FAILURE);
-		}
 		
 	}
         free(line);
