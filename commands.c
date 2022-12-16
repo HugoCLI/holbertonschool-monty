@@ -124,3 +124,31 @@ int swap_command(void)
         return (1);
 
 }
+
+/**
+ * add_command - a function that execute commands
+ *
+ * Return: Nothing.
+ */
+int add_command(void)
+{
+        int sum = 0;
+        stack_t *seek = array;
+        stack_t *cache;
+
+	if (!array || !array->next)
+                return (8);
+
+        sum += seek->n;
+        sum += seek->next->n;
+        cache = seek->next->next;
+
+        
+        free(array->next);
+        free(array);
+        array = cache;
+        push_command(sum);
+        
+        return (1);
+
+}

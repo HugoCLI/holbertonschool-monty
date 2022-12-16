@@ -17,6 +17,7 @@ int pall_command(void);
 int pint_command(void);
 int pop_command(void);
 int swap_command(void);
+int add_command(void);
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
